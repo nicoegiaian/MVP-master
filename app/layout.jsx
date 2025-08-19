@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import ClientLayout from "../components/ClientLayout";
 import "./globals.css";
 
@@ -27,18 +28,19 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLTZMFB49W"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-TLTZMFB49W"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-TLTZMFB49W');
-            `,
-          }}
-        />
+          `}
+        </Script>
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
