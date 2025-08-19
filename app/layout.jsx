@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
+import AnalyticsListener from "../components/AnalyticsListener";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
+        <AnalyticsListener />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
