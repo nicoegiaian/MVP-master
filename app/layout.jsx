@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import ClientLayout from "../components/ClientLayout";
+import AnalyticsListener from "../components/AnalyticsListener";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -65,14 +66,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=G-TLTZMFB49W"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
+        <AnalyticsListener />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
